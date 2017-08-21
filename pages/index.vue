@@ -6,14 +6,15 @@
 </template>
 
 <script>
-import Search from '~/components/Search'
-import JobsList from '~/components/JobsList'
+import Search from '~/components/Search';
+import JobsList from '~/components/JobsList';
+
 export default {
   components: {
     Search,
     JobsList
   }
-}
+};
 </script>
 
 <style>
