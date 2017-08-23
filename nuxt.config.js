@@ -3,7 +3,8 @@ module.exports = {
   ** Headers of the page
   */
   css: [
-    'assets/css/bulma.css'
+    'assets/css/bulma.css',
+    { src: 'font-awesome/css/font-awesome.css', lang: 'css' }
   ],
   head: {
     title: 'vue-jobs',
@@ -28,14 +29,14 @@ module.exports = {
     ** Run ESLINT on save
     */
     extend (config, ctx) {
-      if (ctx.dev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
+      // if (ctx.dev && ctx.isClient) {
+      //   config.module.rules.push({
+      //     enforce: 'pre',
+      //     test: /\.(js|vue)$/,
+      //     loader: 'eslint-loader',
+      //     exclude: /(node_modules)/
+      //   })
+      // }
     }
   }
 }
