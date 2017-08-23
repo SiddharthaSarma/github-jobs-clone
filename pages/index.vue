@@ -1,8 +1,8 @@
 <template>
   <section class="container is-fluid">
     <Navbar></Navbar>
-    <Search></Search>
-    <JobsList></JobsList>
+    <Search @jobSearch="inputSearch"></Search>
+    <JobsList v-bind:description="description" v-bind:location="location"></JobsList>
   </section>
 </template>
 
@@ -17,6 +17,20 @@ export default {
     Navbar,
     Search,
     JobsList
+  },
+  data() {
+      return {
+          description: '',
+          location: '',
+          fullTime: ''
+      }
+  },
+  methods: {
+      inputSearch(value) {
+          this.description = value.description;
+          this.location = value.location;
+          this.fullTime = value.fullTime;
+      }
   }
 };
 </script>
