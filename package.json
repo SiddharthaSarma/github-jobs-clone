@@ -4,6 +4,11 @@
   "description": "Nuxt.js project",
   "author": "siddhartha sarma",
   "private": true,
+  "config": {
+    "nuxt": {
+      "port": "3333"
+    }
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
@@ -13,6 +18,8 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@nuxtjs/font-awesome": "^1.0.2",
+    "axios": "^0.16.2",
     "nuxt": "^1.0.0-rc3"
   },
   "devDependencies": {
