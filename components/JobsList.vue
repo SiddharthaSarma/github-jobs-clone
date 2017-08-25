@@ -18,9 +18,7 @@
           </div>
           <nav class="level is-mobile">
             <div class="level-left">
-              <a class="level-item">
-                <span class="icon is-small"><i class="fa fa-reply"></i></span>
-              </a>
+              <nuxt-link :to="{ name: 'jobs', params: { id: job.id }}">View more...</nuxt-link>
             </div>
           </nav>
         </div>
