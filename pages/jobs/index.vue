@@ -11,19 +11,13 @@
 
   export default {
 
-//    async asyncData ({ params, error }) {
-//      try {
-//        const { data } = await axios.get(`https://jobs.github.com/positions/87461912-8741-11e7-9123-2e5a5789abc2.json`);
-//        return data
-//      } catch (e) {
-//        error({ message: 'Job not found', statusCode: 404 })
-//      }
-//    }
-
-    created() {
-      axios.get(`https://jobs.github.com/positions/87461912-8741-11e7-9123-2e5a5789abc2.json`).then(function(response) {
-          console.log(response);
-      })
+    async asyncData ({ params, error }) {
+      try {
+        const { data } = await axios.get(`https://jobs.github.com/positions/87461912-8741-11e7-9123-2e5a5789abc2.json`);
+        return data
+      } catch (e) {
+        error({ message: 'Job not found', statusCode: 404 })
+      }
     }
   }
 </script>
