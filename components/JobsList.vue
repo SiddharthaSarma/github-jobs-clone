@@ -1,10 +1,11 @@
 <template>
   <div class="container is-fluid">
-    <div class="box" v-for="job in jobsList" v-bind:key="job.id">
+    <Spinner v-if="showLoader"></Spinner>
+    <div class="box" v-if="!showLoader" v-for="job in jobsList" v-bind:key="job.id">
       <article class="media">
         <div class="media-left">
           <figure class="image is-64x64">
-            <img :src="job.company_logo" alt="Image">
+            <img :src="job.company_logo" alt="logo">
           </figure>
         </div>
         <div class="media-content">
@@ -18,7 +19,7 @@
           </div>
           <nav class="level is-mobile">
             <div class="level-left">
-              <nuxt-link :to="{ name: 'jobs', params: { id: job.id }}">View more...</nuxt-link>
+              <a :href="job.url" target="_blank">View more...</a>
             </div>
           </nav>
         </div>
@@ -29,17 +30,24 @@
 
 <script>
   import axios from 'axios';
+  import Spinner from './Spinner.vue'
   export default {
     name: 'jobslist',
+    components: {
+      Spinner
+    },
     props:['description', 'location'],
     data() {
       return {
-          jobsList: []
+          jobsList: [],
+          showLoader: true
       }
     },
     methods: {
         fetchJobs() {
+          this.showLoader = true;
           axios.get(`https://jobs.github.com/positions.json?description=${this.description}&location=${this.location}`).then(function(response) {
+            this.showLoader = false;
             this.jobsList = response.data;
           }.bind(this));
         }
