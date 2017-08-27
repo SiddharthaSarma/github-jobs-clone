@@ -11,7 +11,6 @@
 import Navbar from '~/components/Navbar';
 import Search from '~/components/Search';
 import JobsList from '~/components/JobsList';
-
 export default {
   components: {
     Navbar,
@@ -36,5 +35,10 @@ export default {
 </script>
 
 <style>
-
+  a {
+    color: #2B7FC3;
+  }
+  .button.is-primary {
+    background-color: #2B7FC3;
+  }
 </style>
